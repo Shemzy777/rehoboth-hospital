@@ -1,4 +1,4 @@
-import { Phone, MapPin } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { usePageMeta } from '../lib/usePageMeta';
 
 const steps = [
