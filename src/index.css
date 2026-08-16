@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Core palette — used deliberately, not uniformly */
+  --color-ink: #0B1D33;          /* primary text / headline color */
+  --color-navy: #0A2A47;         /* deep institutional backgrounds */
+  --color-medical: #0B5ED7;      /* the one blue reserved for action + emphasis */
+  --color-medical-deep: #084A9E;
+  --color-soft-blue: #E8F1FC;    /* tint, not a filled block */
+  --color-warm-white: #FCFBF8;   /* primary background, warmer than pure white */
+  --color-paper: #F4F4F2;        /* secondary surface */
+  --color-silver: #E3E1DC;       /* borders / rules on warm surfaces */
+  --color-silver-cool: #DEE3E8;  /* borders on cool/blue surfaces */
+  --color-muted: #5C6773;        /* secondary text */
+  --color-brick: #A6392C;        /* restrained emergency accent, not alarm-red */
+  --color-brick-deep: #7E2A20;
+  --color-success: #3F7A52;
+
+  /* legacy aliases kept so existing utility classes keep working */
+  --color-brand-primary: #0B5ED7;
+  --color-brand-deep: #063B7A;
+  --color-brand-navy: #0A2A47;
+  --color-brand-light: #E8F1FC;
+  --color-brand-lighter: #FCFBF8;
+  --color-brand-white: #FCFBF8;
+  --color-brand-gray: #F4F4F2;
+  --color-brand-border: #E3E1DC;
+  --color-brand-text: #0B1D33;
+  --color-brand-muted: #5C6773;
+  --color-brand-success: #3F7A52;
+  --color-brand-emergency: #A6392C;
+  --color-brand-emergency-deep: #7E2A20;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-warm-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+.font-mono-label {
+  font-family: var(--font-mono);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-medical);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.container-page {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .container-page {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Eyebrow / index label used as the recurring structural signature */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-medical);
+  line-height: 1.1;
+}
+
+.rule {
+  height: 1px;
+  background: var(--color-silver);
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
